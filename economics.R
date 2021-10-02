@@ -93,6 +93,7 @@ pwt_2012 <- pwt_2012 %>%
   add_predictions(pwt_2012_mod) %>%
   add_residuals(pwt_2012_mod)
 
+# population_GDP.png
 ggplot(pwt_2012, aes(pop, rgdpo)) +
   geom_point() +
   geom_line(aes(y = pred)) +
@@ -128,6 +129,7 @@ world_gdp_byyear <- world_gdp_byyear %>%
   group_by(year) %>%
   summarize(world_gdp = sum(rgdpo, na.rm = TRUE)/1000000)
 
+# world_GDP.png
 ggplot(world_gdp_byyear, aes(year, world_gdp)) +
   geom_line(size = 1.25) +
   geom_area(aes(y = world_gdp), fill = "gray") +
